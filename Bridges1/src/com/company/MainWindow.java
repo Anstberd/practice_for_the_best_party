@@ -27,15 +27,15 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 public class MainWindow {
-    private HashMap<Integer, List<Integer>> vertexMap = new HashMap<Integer, List<Integer>>();
-    private HashMap<Integer, Integer> bridges = new HashMap<Integer, Integer>();
+    public HashMap<Integer, List<Integer>> vertexMap = new HashMap<Integer, List<Integer>>();
+    public HashMap<Integer, Integer> bridges = new HashMap<Integer, Integer>();
     //вершины и их рёбра в vertexCommunication вершина - ключ, id ребра - значение
-    HashMap<Integer, List<Integer>> vertexCommunication = new HashMap<Integer, List<Integer>>();
-    private int time;
-    private int rememberLength;
-    private boolean[] used;
-    private int[] fup;
-    private int[] tin;
+    public HashMap<Integer, List<Integer>> vertexCommunication = new HashMap<Integer, List<Integer>>();
+    public int time;
+    public int rememberLength;
+    public boolean[] used;
+    public int[] fup;
+    public int[] tin;
 
     private JPanel fld;
     private JButton addVertexButton;
@@ -333,13 +333,13 @@ public class MainWindow {
         graph.getModel().endUpdate();
     }
 
-    private void addVertex(int vertexName) {
+    public void addVertex(int vertexName) {
         if (!hasVertex(vertexName)) {
             vertexMap.put(vertexName, new ArrayList<Integer>());
         }
     }
 
-    private boolean hasVertex(int vertexName) {
+    public boolean hasVertex(int vertexName) {
         return vertexMap.containsKey(vertexName);
     }
 
@@ -408,7 +408,9 @@ public class MainWindow {
             }
         }
     }
-
+public HashMap<Integer, Integer> getBridges(){
+        return bridges;
+}
     public void findBridges() {
         used = new boolean[vertexMap.size() + 1];
         fup = new int[vertexMap.size() + 1];
